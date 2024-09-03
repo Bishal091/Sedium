@@ -1,0 +1,11 @@
+import { Hono } from "hono";
+import { userRoute } from './routes/user';
+import { blogRoute } from './routes/blog';
+import { cors } from 'hono/cors';
+import { messageRoute } from "./routes/message";
+const app = new Hono();
+app.use('/*', cors());
+app.route("/user", userRoute);
+app.route("/blog", blogRoute);
+app.route("/sedium", messageRoute);
+export default app;
